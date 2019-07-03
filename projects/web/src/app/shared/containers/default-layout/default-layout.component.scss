@@ -1,0 +1,41 @@
+@import '../../../../styles/colors';
+
+:host {
+  display: grid;
+
+  grid-template-areas:
+    "header header header"
+    "left content right"
+    "footer footer footer";
+
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: auto 1fr auto;
+  grid-gap: 10px;
+
+  height: 100vh;
+  background-color: $ui-background;
+}
+
+header {
+  grid-area: header;
+  background-color: $indigo-700;
+  color: $blue-grey-50;
+}
+
+main {
+  grid-area: content;
+}
+
+aside.left {
+  grid-area: left;
+  margin-right: 0.5rem;
+}
+
+aside.right {
+  grid-area: right;
+  margin-right: 0.5rem;
+}
+
+footer {
+  grid-area: footer;
+}
