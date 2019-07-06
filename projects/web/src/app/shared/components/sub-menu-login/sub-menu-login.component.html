@@ -1,5 +1,8 @@
 <ul class="login-container">
-  <li>
-    <a href="javascript:void" (click)="this.auth.login('home')">Login</a>
+  <li *ngIf="!afAuth.user | async as user; else showProfile">
+    <a href="javascript:void" (click)="login()">Login</a>
   </li>
+  <ng-template #showProfile>
+
+  </ng-template>
 </ul>
