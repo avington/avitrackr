@@ -1,0 +1,16 @@
+@import "../../../../styles/colors";
+
+textarea {
+  width: 100%;
+  border: none;
+}
+
+.avi-form-control {
+  border: $control-border solid 1px;
+}
+
+.avi-validation {
+  height: 30px;
+  color: $red-900;
+  font-weight: 700;
+}

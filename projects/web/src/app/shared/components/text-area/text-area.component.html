@@ -1,0 +1,15 @@
+<div class="avi-component avi-input-container">
+  <label [for]="controlId" class="avi-label">
+    {{label}}
+    <span class="required" *ngIf="isRequired">*</span>
+  </label>
+  <div class="avi-form-control"
+    [ngClass]="{'error': controlDir && !controlDir.control.valid && controlDir.control.touched}">
+    <textarea #textArea [attr.id]="controlId" rows="10" (input)="onChange($event.target.value)" (blur)="onTouched()"
+      [disabled]="disabled"></textarea>
+  </div>
+  <div class="avi-validation">
+    <span class="error" *ngIf="controlDir && !controlDir.control.valid 
+          && controlDir.control.touched">{{errorMsg}}</span>
+  </div>
+</div>

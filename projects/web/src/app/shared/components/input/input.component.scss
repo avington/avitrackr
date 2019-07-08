@@ -1,0 +1,26 @@
+@import "../../../../styles/colors";
+
+.avi-form-control {
+  padding: 3px 0 3px 0;
+
+}
+
+input {
+  width: 100%;
+  height: 32px;
+  border: none;
+}
+
+.avi-form-control {
+  border: $control-border solid 1px;
+}
+
+.avi-form-control.error {
+  border: $red-900 solid 1px;
+}
+
+.avi-validation {
+  height: 30px;
+  color: $red-900;
+  font-weight: 700;
+}

@@ -11,10 +11,18 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../../environments/environment';
-import { ReactiveFormsModule} from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
+import { InputComponent } from './components/input/input.component';
+import { TextAreaComponent } from './components/text-area/text-area.component';
 
 @NgModule({
-  declarations: [DefaultLayoutComponent, DefaultNavbarComponent, SubMenuLoginComponent],
+  declarations: [
+    DefaultLayoutComponent,
+    DefaultNavbarComponent,
+    SubMenuLoginComponent,
+    InputComponent,
+    TextAreaComponent
+  ],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -24,16 +32,19 @@ import { ReactiveFormsModule} from '@angular/forms'
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
     ReactiveFormsModule
-    
-  ], // storage],
+  ],
   exports: [
-    DefaultLayoutComponent,
     RouterModule,
     AngularFireModule,
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    // components
+    DefaultLayoutComponent,
+    InputComponent,
+    TextAreaComponent
   ]
 })
 export class SharedModule {}

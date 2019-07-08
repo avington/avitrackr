@@ -1,0 +1,12 @@
+<div class="form-container grid">
+  <legend class="col-span-12" *ngIf="!!project.id">Update Project</legend>
+  <legend class="col-span-12" *ngIf="!project.id">Create Project</legend>
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()" class="col-span-12">
+    <avi-input [controlId]="'projectName'" [isRequired]="true" formControlName="name" [label]="'Project Name'"
+      [errorMsg]="'Project name is required.'">
+    </avi-input>
+    <avi-text-area [controlId]="'projectDescription'" formControlName="description" [label]="'Project Description'">
+    </avi-text-area>
+    <button class="btn primary" type="submit">Save</button>
+  </form>
+</div>

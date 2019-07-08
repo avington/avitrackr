@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Project } from 'projects/web/src/app/shared/models/project.model';
 
 @Component({
   selector: 'avi-create-project-page',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-project-page.component.scss']
 })
 export class CreateProjectPageComponent implements OnInit {
-
-  constructor() { }
+  project: Project;
+  constructor() {}
 
   ngOnInit() {
+    this.project = { name: '' };
   }
-
 }
