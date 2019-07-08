@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../../environments/environment';
+import { ReactiveFormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [DefaultLayoutComponent, DefaultNavbarComponent, SubMenuLoginComponent],
@@ -21,7 +22,9 @@ import { environment } from '../../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ReactiveFormsModule
+    
   ], // storage],
   exports: [
     DefaultLayoutComponent,
@@ -29,7 +32,8 @@ import { environment } from '../../environments/environment';
     AngularFireModule,
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule {}
