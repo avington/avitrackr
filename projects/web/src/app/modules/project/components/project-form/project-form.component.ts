@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Project } from 'projects/web/src/app/shared/models/project.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -9,6 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProjectFormComponent implements OnInit {
   @Input() project: Project;
+
+  @Output() save: EventEmitter<Project> = new EventEmitter<Project>();
 
   projectForm: FormGroup;
 
@@ -22,6 +24,7 @@ export class ProjectFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.projectForm);
+    const project: Project = { ...this.projectForm.value };
+    this.save.emit(project);
   }
 }

@@ -13,10 +13,15 @@ input {
 
 .avi-form-control {
   border: $control-border solid 1px;
+  margin-top: 3px;
 }
 
 .avi-form-control.error {
   border: $red-900 solid 1px;
+}
+
+.required {
+  color: $red-900;
 }
 
 .avi-validation {

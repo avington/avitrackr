@@ -13,4 +13,8 @@ export class CreateProjectPageComponent implements OnInit {
   ngOnInit() {
     this.project = { name: '' };
   }
+
+  onSave(project: Project) {
+    console.log('create project', project);
+  }
 }

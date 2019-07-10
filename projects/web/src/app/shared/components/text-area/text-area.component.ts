@@ -1,4 +1,14 @@
-import { Component, OnInit, Input, AfterViewInit, ViewChild, ElementRef, Self } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  AfterViewInit,
+  ViewChild,
+  ElementRef,
+  Self,
+  Output,
+  EventEmitter
+} from '@angular/core';
 import {
   ControlValueAccessor,
   Validator,
@@ -8,6 +18,7 @@ import {
   NgControl,
   ValidatorFn
 } from '@angular/forms';
+import { Project } from '../../models/project.model';
 
 @Component({
   selector: 'avi-text-area',
