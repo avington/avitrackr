@@ -19,7 +19,6 @@ export class ProfileDataService {
     return this.authFb.user.pipe(
       filter(user => !!user),
       tap(user => {
-
         // grab the user to use later
         currentUser = {
           email: user.email,
@@ -35,7 +34,7 @@ export class ProfileDataService {
           .pipe(switchMap(mapSnapshot));
       }),
       tap((users: any[]) => {
-        // 
+        // if user is not in db then add them as a profile
         if (users.length === 0) {
           const userCollection = this.fireStore.collection<Profile>('profiles');
           userCollection.add(currentUser);
