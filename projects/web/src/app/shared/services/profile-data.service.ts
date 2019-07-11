@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { filter, exhaustMap, tap, map } from 'rxjs/operators';
+import { filter, exhaustMap, tap, map, switchMap } from 'rxjs/operators';
 import { User } from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Profile } from '../models/profile.model';
+import { Observable, of } from 'rxjs';
+import { mapSnapshot } from '../utilities/map-snapshot';
 
 @Injectable({
   providedIn: 'root'
@@ -11,12 +13,14 @@ import { Profile } from '../models/profile.model';
 export class ProfileDataService {
   constructor(private authFb: AngularFireAuth, private fireStore: AngularFirestore) {}
 
-  getUser() {
+  getUser(): Observable<Profile[]> {
     let currentUser: Profile;
 
     return this.authFb.user.pipe(
       filter(user => !!user),
       tap(user => {
+
+        // grab the user to use later
         currentUser = {
           email: user.email,
           displayName: user.displayName,
@@ -25,9 +29,13 @@ export class ProfileDataService {
         };
       }),
       exhaustMap(user => {
-        return this.fireStore.collection('profiles', ref => ref.where('email', '==', user.email)).valueChanges();
+        return this.fireStore
+          .collection<Profile>('profiles', ref => ref.where('email', '==', user.email))
+          .snapshotChanges()
+          .pipe(switchMap(mapSnapshot));
       }),
-      tap((users: User[]) => {
+      tap((users: any[]) => {
+        // 
         if (users.length === 0) {
           const userCollection = this.fireStore.collection<Profile>('profiles');
           userCollection.add(currentUser);

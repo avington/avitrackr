@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Profile } from 'projects/web/src/app/shared/models/profile.model';
 
 @Component({
   selector: 'avi-projects',
@@ -8,14 +9,14 @@ import { Router } from '@angular/router';
 })
 export class ProjectsComponent implements OnInit {
 
+  @Input() profile: Profile;
+  
   constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
   goToCreateProject() {
-    console.log('routig');
-
     this.router.navigate(['/project/new']);
   }
 

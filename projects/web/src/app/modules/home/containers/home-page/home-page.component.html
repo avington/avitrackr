@@ -1,5 +1,5 @@
 <avi-default-layout>
   <div class="home-logged-in" *ngIf="afAuth.user | async as user">
-    <avi-projects></avi-projects>
+    <avi-projects [profile]="profile$ | async | slice :0:1"></avi-projects>
   </div>
 </avi-default-layout>

@@ -1,8 +1,12 @@
 <div class="project-list-container">
-    <div class="title-row">
-        <div class="title">Your Projects</div>
-        <div class="button-container">
-            <button class="btn primary" (click)="goToCreateProject()">Create Project</button>
-        </div>
+  <div class="title-row">
+    <div class="title">Your Projects</div>
+    <div class="button-container">
+      <button class="btn primary" (click)="goToCreateProject()">Create Project</button>
     </div>
+  </div>
+  <div class="project-container">
+    <div class="project-cards" *ngIf="profile?.projects?.length > 0">project cards</div>
+    <div class="no-projects" *ngIf="!profile?.projects">No Projects {{profile | json}}</div>
+  </div>
 </div>
